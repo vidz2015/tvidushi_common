@@ -1,4 +1,4 @@
-package com.vidushi.takshila.datastructure.matrix;
+package com.vidushi.takshila.matrices;
 
 public class TwoDArrayInitialization {
 

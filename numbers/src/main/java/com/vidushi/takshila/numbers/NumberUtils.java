@@ -46,7 +46,7 @@ public class NumberUtils
 		for(int i =1;i<=len;i++){
 			if(num%i == 0)sum+=i;
 		}
-		if(sum == num)System.out.println("0"); else System.out.println(1);
+		if(sum == num)return false; else return true;
    } 
    
   
@@ -179,20 +179,6 @@ public class NumberUtils
     			 System.out.println("No it is not");
     		}
     	}
-        } 
+    } 
         
       
-    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-}
