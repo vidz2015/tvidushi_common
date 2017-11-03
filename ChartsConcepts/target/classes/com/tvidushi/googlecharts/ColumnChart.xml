@@ -1,0 +1,109 @@
+<chart-concepts>
+
+	<chart-library>
+			<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</chart-library>
+	<column-chart>
+	        <when_to_use>
+			
+			</when_to_use>
+		
+			<data>
+				<!-- POINT TO OBSERVE :   { role: 'style' }
+		1) color :
+		2) opacity :
+		3) fill-color :
+		4) fill-opacity :
+		5) stroke-color  :
+		6) stroke-opacity :
+		7) stroke-width  :
+		         -->
+		         <!--  google.visualization.arrayToDataTable : represents a two-dimensional, mutable table of values. -->
+  			    var data = google.visualization.arrayToDataTable([
+					        ['Year', 'Visitations', { role: 'style' } ],
+					        ['2010', 10, 'color: gray'],
+					        ['2020', 14, 'color: #76A7FA'],
+					        ['2030', 16, 'opacity: 0.2'],
+					        ['2040', 22, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+					        ['2050', 28, 'stroke-color: #871B47; stroke-opacity: 0.6; stroke-width: 8; fill-color: #BC5679; fill-opacity: 0.2']
+					      ]);
+					      
+			<!-- POINT TO OBSERVE :   { role: 'annotation' }
+	            How to label columns ?
+		    -->		      
+			var data = google.visualization.arrayToDataTable([
+				         ['Element', 'Density', { role: 'style' }, { role: 'annotation' } ],
+				         ['Copper', 8.94, '#b87333', 'Cu' ],
+				         ['Silver', 10.49, 'silver', 'Ag' ],
+				         ['Gold', 19.30, 'gold', 'Au' ],
+				         ['Platinum', 21.45, 'color: #e5e4e2', 'Pt' ]
+				      ]);      
+			<!-- POINT TO OBSERVE :   { role: 'annotation' }
+	            How to label columns ?
+		    -->			      
+			var data = google.visualization.arrayToDataTable([
+					        ["Element", "Density", { role: "style" } ],
+					        ["Copper", 8.94, "#b87333"],
+					        ["Silver", 10.49, "silver"],
+					        ["Gold", 19.30, "gold"],
+					        ["Platinum", 21.45, "color: #e5e4e2"]
+					      ]);
+ 	      <!-- A read-only view of an underlying DataTable. A DataView allows selection of only a subset of the columns and/or rows. 
+	      It also allows reordering columns/rows, and duplicating columns/rows -->
+	      var view = new google.visualization.DataView(data);
+
+	      view.setColumns([0, 1,
+	                       { calc: "stringify",
+	                         sourceColumn: 1,
+	                         type: "string",
+	                         role: "annotation" },
+	                       2]);	      
+			</data>
+		
+			<option>
+			<!-- 
+			 title
+			 hAxis
+			 vAxis
+			 legend
+			 height
+			 width
+			 -->
+			
+			var options = {
+						          title: 'Company Performance',
+						          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+						          vAxis: {minValue: 0}
+      					  };
+      					  
+      					  
+      		 var options_fullStacked =   {
+								          isStacked: 'relative',
+								          height: 300,
+								          legend: {position: 'top', maxLines: 3},
+								          vAxis: {
+								            minValue: 0,
+								            ticks: [0, .3, .6, .9, 1]
+								          }
+        							   };	
+        	 var options_stacked =     {
+								          isStacked: true,
+								          height: 300,
+								          legend: {position: 'top', maxLines: 3},
+								          vAxis: {minValue: 0}
+								        };		  
+      					  
+      					  
+			</option>
+		
+			<chart>
+			
+			   var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+			
+			
+			</chart>
+	</column-chart>
+
+
+</chart-concepts>

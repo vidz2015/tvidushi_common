@@ -1,0 +1,30 @@
+<chart-concepts>
+
+	<chart-library>
+			<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</chart-library>
+	<column-chart>
+	        <when_to_use>
+			
+			</when_to_use>
+		<loading>
+		  google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+		</loading>
+			<data>
+  
+			</data>
+		
+			<option>
+
+			</option>
+		
+			<chart>
+			
+
+			
+			</chart>
+	</column-chart>
+
+
+</chart-concepts>

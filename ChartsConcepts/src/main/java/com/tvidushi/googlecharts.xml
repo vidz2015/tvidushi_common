@@ -1,0 +1,42 @@
+<chart-concepts>
+
+	<google-charts>
+	  <!-- 
+	  1.Add loader.js 
+	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	 <script>
+			  google.charts.load("current", {packages:["corechart"]});
+		      google.charts.setOnLoadCallback(drawChart);
+	 </script>
+	 
+	  2. Define a div element to contain chart 
+	  <div id="barchart_values" style="width: 900px; height: 300px;"></div>
+	 
+	  3. Define data using arrayToDataTable
+		  
+		    var data = google.visualization.arrayToDataTable([
+	        ["Element", "Density", { role: "style" } ],
+	        ["Platinum", 21.45, "color: #e5e4e2"]
+	      ]);
+	  
+	  4.Define Option which will take all value
+			
+			  var options = {
+				        title: "Density of Precious Metals, in g/cm^3",
+				        width: 600,
+				        height: 400,
+				        bar: {groupWidth: "95%"},
+				        legend: { position: "none" },
+		      };
+	  5.Define charts
+	 		  
+	 		  var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      				
+      6. Pass data|view or options to chart.draw function	
+              
+              chart.draw(view, options);			
+	   -->
+	
+	</google-charts>
+	
+</chart-concepts>

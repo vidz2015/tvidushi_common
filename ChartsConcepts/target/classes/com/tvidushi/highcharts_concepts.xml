@@ -1,0 +1,176 @@
+<chart-concepts>
+
+<options>
+  <CHART></CHART>
+  <TITLE></TITLE> 
+  <SUB-TITLE></SUB-TITLE>
+  <LEGEND></LEGEND>
+  
+  
+  <V-AXIS>
+        <!-- 
+	        title
+	        tickInterval 
+        -->
+       
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            },
+            tickInterval: 1
+        },
+
+ </V-AXIS>
+ <H-AXIS>
+        <!-- 
+	        title
+	        tickInterval 
+	        alternateGridColor: Color
+                                       When using an alternate grid color, a band is painted across the plot area between every other grid line.
+			gridLineColor: Color       Color of the grid lines extending the ticks across the plot area.
+	        gridLineWidth: Number      The width of the grid lines extending the ticks across the plot area.
+            label                      The axis labels show the number or category for each tick.
+            id                         An id for the axis. This can be used after render time to get a pointer to the axis object through chart.get().
+            lineWidth: Number          The width of the line marking the axis itself.
+            max: Number                The maximum value of the axis
+            maxPadding: NumberSince 1.2.0     Padding of the max value relative to the length of the axis. A padding of 0.05 will make a 100px axis 5px longer.
+            maxZoom: Number           Deprecated. Use minRange instead.
+        -->
+         xAxis: {
+            title: {
+                text: 'Fruit Number'
+            },
+            tickInterval: 1,
+            plotBands: [{
+						    color: 'orange', // Color value
+						    from: 3, // Start of the plot band
+						    to: 4 // End of the plot band
+ 						 events: {
+					    click: function () {
+					      // Action performed when event occurs
+					    },
+					    mouseover: function () {
+					      // Action performed when event occurs
+					    },
+					    mouseout: function () {
+					      // Action performed when event occurs
+					    },
+					    mousemove: function () {
+					      // Action performed when event occurs
+							    }
+ 					   }],
+ 			 plotLines: [{
+				    color: 'red', // Color value
+				    dashStyle: 'longdashdot', // Style of the plot line. Default to solid
+				    value: 3, // Value of where the line will appear
+				    width: 2 // Width of the line    
+  			}]
+        }
+ </H-AXIS>
+       
+ <SERIES>
+           <!-- 
+	        title
+	        tickInterval 
+        -->
+         series: [{
+            name: 'Jane',
+            data: [1, 0, 4]
+        }, {
+            name: 'John',
+            data: [5, 7, 3]
+        }]
+        
+        
+    <plotOptions>
+    1.General options that apply to multiple series are defined in the plotOptions. 
+    To set general options for all series in the chart, use plotOptions.series. 
+    To set general options for a specific chart type, each chart type has its own collection of plotOptions.
+    
+    plotOptions: {
+    series: {
+        allowPointSelect: true
+        dashStyle: 'longdash'
+    }
+    
+     line: {
+        dataLabels: {
+            enabled: true
+        }
+    }
+}
+Code to get the selected points:
+
+var selectedPoints = chart.getSelectedPoints();
+    </plotOptions> 
+    <options>
+    Specific options for each series are defined in the series options structure
+    color
+    name 
+    data
+    dashstyle
+    
+    </options>   
+        
+ </SERIES>
+	    
+     
+ <GRIDLINES>
+ <!--Grid lines are collections of horizontal (and/or vertical) lines that divide a chart into a grid, 
+ making it easier to read values of the chart.   -->
+ 
+		 xAxis: {
+		    gridLineWidth: 1|0-disabled
+		},
+		yAxis: {
+		    gridLineWidth: 1
+		}
+</GRIDLINES>
+
+<tooltip>
+tooltip: {
+    backgroundColor: '#FCFFC5',
+    borderColor: 'black',
+    borderRadius: 10,
+    borderWidth: 3
+}
+
+
+</tooltip>
+ 
+</options>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. WHAT IS A SERIES?
+
+<!-- A series is a set of data, for example a line graph or one set of columns. All data plotted on a chart comes from the series object. 
+      The series object has the structure: -->
+	series: [{
+	    name: ''
+	    data: []
+	}]
+
+<series-options>
+
+
+
+</series-options>
+
+
+
+
+
+</chart-concepts>

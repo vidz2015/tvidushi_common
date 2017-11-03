@@ -1,0 +1,234 @@
+<chart-concepts>
+
+<chart-library>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</chart-library>
+
+
+<area-chart>
+		<when_to_use>
+		
+		</when_to_use>
+		<data>
+		 function drawChart() {
+	        var data = google.visualization.arrayToDataTable([
+	          ['Year', 'Sales', 'Expenses'],
+	          ['2013',  1000,      400],
+	          ['2014',  1170,      460],
+	          ['2015',  660,       1120],
+	          ['2016',  1030,      540]
+	        ]);
+		</data>
+		<option>
+		----------------------------------------------------------------------------------------------------------------------------------------------------
+			var options = {
+		          title: 'Company Performance',
+		          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+		          vAxis: {minValue: 0}
+		        };
+		    
+	    ----------------------------------------------------------------------------------------------------------------------------------------------------
+		    var options_stacked = {
+	          isStacked: true,
+	          height: 300,
+	          legend: {position: 'top', maxLines: 3},
+	          vAxis: {minValue: 0}
+	        };  
+	   ----------------------------------------------------------------------------------------------------------------------------------------------------    
+		  <!-- POINT TO OBSERVE :
+		 		 How to  stack/fully stack charts ?
+		  
+		  
+		  
+		   -->
+		  
+		     var options_fullStacked = {
+	          isStacked: 'relative',
+	          height: 300,
+	          legend: {position: 'top', maxLines: 3},
+	          vAxis: {
+	            minValue: 0,
+	            ticks: [0, .3, .6, .9, 1]
+	          }
+	        };
+      ----------------------------------------------------------------------------------------------------------------------------------------------------    
+	        
+		</option>
+		<chart>
+			 var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+	          chart.draw(data, options);
+		</chart>
+
+</area-chart>
+
+
+<bar-chart>
+		<when_to_use>
+		
+		</when_to_use>
+		<data>
+		 function drawChart() {
+			<!-- POINT TO OBSERVE :
+			How to style bars in chart?
+			
+			
+			   { role: 'style' } 
+					color
+					opacity
+					fill-color
+					fill-opacity
+					stroke-color
+					stroke-opacity
+					stroke-width
+			 --> 	 
+        var data = google.visualization.arrayToDataTable([
+		        ['Year', 'Visitations', { role: 'style' } ],
+		        ['2010', 10, 'color: gray'],
+		        ['2020', 14, 'color: #76A7FA'],
+		        ['2030', 16, 'opacity: 0.2'],
+		        ['2040', 22, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+		        ['2050', 28, 'stroke-color: #871B47; stroke-opacity: 0.6; stroke-width: 8; fill-color: #BC5679; fill-opacity: 0.2']
+      ]);
+      
+      <!-- POINT TO OBSERVE :
+            { role: 'annotation' } 
+      
+      -->
+           <!-- POINT TO OBSERVE :
+            { role: 'annotation' } 
+      
+      -->
+      var data = google.visualization.arrayToDataTable([
+         ['Element', 'Density', { role: 'style' }, { role: 'annotation' } ],
+         ['Copper', 8.94, '#b87333', 'Cu' ],
+         ['Silver', 10.49, 'silver', 'Ag' ],
+         ['Gold', 19.30, 'gold', 'Au' ],
+         ['Platinum', 21.45, 'color: #e5e4e2', 'Pt' ]
+      ]);
+      
+       var data = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Copper", 8.94, "#b87333"],
+        ["Silver", 10.49, "silver"],
+        ["Gold", 19.30, "gold"],
+        ["Platinum", 21.45, "color: #e5e4e2"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+      
+      
+      
+      
+      
+      
+		</data>
+		<option>
+		
+		</option>
+		<chart>
+		
+		</chart>
+
+</bar-chart>
+
+
+<bubble-chart>
+		<when_to_use>
+		
+		</when_to_use>
+		<data>
+		
+		</data>
+		<option>
+		
+		</option>
+		<chart>
+		
+		</chart>
+</bubble-chart>
+
+
+
+<column<when_to_use>
+		
+		</when_to_use>
+		<data>
+		
+		</data>
+		<option>
+		
+		</option>
+		<chart>
+		
+		</chart>
+</column-chart>
+
+
+<combo-chart>
+			<when_to_use>
+					When you want to compare different series 
+					
+					This chart that lets you render each series as a different marker type from the following list: 
+					a)line, 
+					b)area, 
+					c)bars, d)candlesticks, 
+					e)and stepped area
+					https://developers.google.com/chart/interactive/docs/gallery/combochart
+			</when_to_use>
+
+			<data>
+					function drawVisualization() {
+					        // Some raw data (not necessarily accurate)
+					        var data = google.visualization.arrayToDataTable([
+					         ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
+					         ['2004/05',  165,      938,         522,             998,           450,      614.6],
+					         ['2005/06',  135,      1120,        599,             1268,          288,      682],
+					         ['2006/07',  157,      1167,        587,             807,           397,      623],
+					         ['2007/08',  139,      1110,        615,             968,           215,      609.4],
+					         ['2008/09',  136,      691,         629,             1026,          366,      569.6]
+					      ]);
+			</data>	      
+			<option>
+			     var options = {
+						      title : 'Monthly Coffee Production by Country',
+						      vAxis: {title: 'Cups'},
+						      hAxis: {title: 'Month'},
+						      seriesType: 'bars',
+						      series: {5: {type: 'line'}} // This is the average series
+						    };
+			
+			
+			
+			</option>		
+			<chart>
+						    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+						    chart.draw(data, options);
+			</chart>
+   
+
+
+</combo-chart>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</chart-concepts>

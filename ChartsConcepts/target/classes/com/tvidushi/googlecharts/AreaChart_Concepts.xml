@@ -1,0 +1,78 @@
+<chart-concepts>
+
+<chart-library>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</chart-library>
+
+
+<area-chart>
+		<when_to_use>
+		
+		</when_to_use>
+		<data>
+		 function drawChart() {
+	        var data = google.visualization.arrayToDataTable([
+	          ['Year', 'Sales', 'Expenses'],
+	          ['2013',  1000,      400],
+	          ['2014',  1170,      460],
+	          ['2015',  660,       1120],
+	          ['2016',  1030,      540]
+	        ]);
+		</data>
+		<option>
+		<!-- POINT TO OBSERVE :   
+		
+		 -->
+			var options = {
+		          title: 'Company Performance',
+		          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+		          vAxis: {minValue: 0}
+		        };
+		    
+	   <!-- POINT TO OBSERVE :   
+		 How to  stack  charts ?
+		 -->
+		    var options_stacked = {
+	          isStacked: true,
+	          height: 300,
+	          legend: {position: 'top', maxLines: 3},
+	          vAxis: {minValue: 0}
+	        };  
+	   
+		  <!-- POINT TO OBSERVE :
+		 		 How to  fully stack charts ?
+		   -->
+		  
+		     var options_fullStacked = {
+	          isStacked: 'relative',
+	          height: 300,
+	          legend: {position: 'top', maxLines: 3},
+	          vAxis: {
+	            minValue: 0,
+	            ticks: [0, .3, .6, .9, 1]
+	          }
+	        };
+   
+	        
+		</option>
+		<chart>
+			 var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+	          chart.draw(data, options);
+		</chart>
+
+</area-chart>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</chart-concepts>
