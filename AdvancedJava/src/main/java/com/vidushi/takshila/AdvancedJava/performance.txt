@@ -1,0 +1,37 @@
+------------------------------------------------------------------------------------------------------------------------------------------------
+GRANTED MORE MEMORY AS  IF  NO PROBLEM WITH MEMORY  PAUSES : 
+Pause time is proportional to the number of objects on the heap 
+
+SO GREATER THE SIZE OF HEAP ,
+GREATER THE NO OF OBJECTS IT WILL HOLD[THE MEMORY FOOT PRINT IS HIGH ] & GREATER THE NO OBJECTS IT WILL HOLD 
+,LONGER IT WILL TAKE TO PERFORM FULL GC  
+
+The main problem with classic mark, sweep and compact is that all other threads have to be suspended 
+while the garbage collector runs
+--------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Memory footprint :  The memory footprint  of  the  application is  related  to the number and  size of the live objects 
+that are in the JVM at  any  given point of time
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+OUT OF MEMORY ERROR :Out of swap space ..   INCREASE NATIVE HEAP SIZE  -XX:MaxDirectMemorySize=256M (default is 128)  
+OUT OF MEMORY ERROR :PermGen space          Increase by XX:MaxPermSize=256m 
+OUT OF MEMORY ERROR :Java heap space        Increase by -Xmx 
+PERMANENT GENERATION AKA METHOD AREA  
+--------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------
+java -XX:+PrintFlagsFinal
+
+
+$ jstat -gcutil 21719 1s
+
+
+$ jstat -gcutil 21719 1s
+S0    S1    E    O    P    YGC    YGCT    FGC    FGCT GCT
+48.66 0.00 48.10 49.70 77.45 3428 172.623 3 59.050 231.673
+48.66 0.00 48.10 49.70 77.45 3428 172.623 3 59.050 231.673
+----------------------------------------------------------------------------------------------------------------------------------------------------
+-XX:+PrintHeapAtGC :  ]
