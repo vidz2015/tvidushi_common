@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.spacetimeinsight.magma.server.security.util;
+package com.tvidushi;
 
 import java.security.Security;
 
@@ -14,10 +14,7 @@ import javax.crypto.spec.IvParameterSpec;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-import com.enterprisehorizons.exception.EHRuntimeException;
-import com.enterprisehorizons.util.FileUtils;
-import com.enterprisehorizons.util.Logger;
-import com.enterprisehorizons.util.StringUtils;
+
 
 import de.schlichtherle.util.ObfuscatedString;
 
@@ -36,10 +33,6 @@ import de.schlichtherle.util.ObfuscatedString;
  */
 public class CryptoUtils {
 
-	// Base64Encoder...helps in ASCII handlings...
-//	private static BASE64Encoder base64Encoder = new BASE64Encoder();
-
-//	private static BASE64Decoder base64Decoder = new BASE64Decoder();
 
 	// Create an initialization vector (necessary for CBC mode) 
 	// Most modes require a unique binary sequence, often called an initialization vector (IV
@@ -70,7 +63,7 @@ public class CryptoUtils {
 	 */
 	public static String encryptFile(String fileNameWithPath) throws java.security.InvalidKeyException, Exception {
 		if (fileNameWithPath != null) {
-			String fileContent = FileUtils.getContent(fileNameWithPath);
+			String fileContent = fileNameWithPath;
 			if (fileContent != null) {
 				return encrypt(null, fileContent);
 			}
@@ -88,7 +81,7 @@ public class CryptoUtils {
 	 */
 	public static  String decryptFile(String fileNameWithPath) throws java.security.InvalidKeyException, Exception {
 		if (fileNameWithPath != null) {
-			String fileContent = FileUtils.getContent(fileNameWithPath);
+			String fileContent = fileNameWithPath;
 			if (fileContent != null) {
 				return decrypt(null, fileContent);
 			}
@@ -109,7 +102,7 @@ public class CryptoUtils {
 	 */
 	public static String encryptFile(String keyToEncrypt, String fileNameWithPath) throws java.security.InvalidKeyException, Exception {
 		if (fileNameWithPath != null) {
-			String fileContent = FileUtils.getContent(fileNameWithPath);
+			String fileContent = fileNameWithPath;
 			if (fileContent != null) {
 				return encrypt(keyToEncrypt, fileContent);
 			}
@@ -130,7 +123,7 @@ public class CryptoUtils {
 	 */
 	public static String decryptFile(String keyToDencrypt, String fileNameWithPath) throws java.security.InvalidKeyException, Exception {
 		if (fileNameWithPath != null) {
-			String fileContent = FileUtils.getContent(fileNameWithPath);
+			String fileContent = fileNameWithPath;
 			if (fileContent != null) {
 				return decrypt(keyToDencrypt, fileContent);
 			}
@@ -189,7 +182,7 @@ public class CryptoUtils {
 				}
 
 			} catch (Exception e) {
-				throw new EHRuntimeException(e);
+
 			}
 		}
 		return encryptedData;
@@ -205,7 +198,7 @@ public class CryptoUtils {
 	public static String decrypt(String keyToDecrypt, String encryptedText) {
 		String decryptedData = encryptedText;
 	//	Logger.warn("-------encryptedText :"+encryptedText,CryptoUtils.class);
-		if (!StringUtils.isNull(encryptedText)) {
+		if (encryptedText != null) {
 			try {
 				// makes sure Sun JCE is the provider
 				Security.addProvider(new com.sun.crypto.provider.SunJCE());
@@ -244,7 +237,7 @@ public class CryptoUtils {
 
 			} catch (Exception e) {
 				//throw new EHRuntimeException(e);
-				Logger.error(" decryption of the password is failing", CryptoUtils.class, e);
+				
 			}
 		}
 		return decryptedData;

@@ -1,4 +1,4 @@
-package com.vidushi.takshila.advanced_java;
+package com.tvidushi;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

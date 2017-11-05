@@ -1,9 +1,9 @@
 /**
  * 
  */
-package com.vidushi.takshila.advanced_java;
+package com.tvidushi;
 
-import com.vidushi.takshila.advanced_java.string.IStringConstants;
+
 
 /**
  * /*
@@ -22,8 +22,18 @@ import com.vidushi.takshila.advanced_java.string.IStringConstants;
  *
  * @author takshila vidushi 
  */
-public class StringUtils implements IStringConstants{
 
+
+
+public class StringUtils {
+
+	
+
+	public static final String ASIAN = "Asian";
+	public static final String AFRICAN_AMERICAN = "African American";
+	public static final String LATINO = "LATIN";	
+	
+	
 
      public static <T> boolean isPalindrome(T t) {
    
