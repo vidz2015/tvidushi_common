@@ -3,9 +3,9 @@ package com.tvidushi.JAXB;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name="employee")
+@XmlRootElement(name="person")
 @XmlType(propOrder={"id","name"})
-public class Employee {
+public class Person {
 
 		int id;
 		String name;
