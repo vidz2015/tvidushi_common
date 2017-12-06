@@ -12,20 +12,20 @@ public class TestClient {
 
 
 	public static void main(String[] args) {
-	   Employee employee = new Employee();
-	   employee.setId(1);
-	   employee.setName("Vidushi");
-	   //objectToXML( employee);
-	   xmlToObject();
+	   Person person = new Person();
+	   person.setId(1);
+	   person.setName("Vidushi");
+	   objectToXML( person);
+	  // xmlToObject();
 	}
 	
-	public static Employee objectToXML(Employee employee){
+	public static Person objectToXML(Person Person){
 		
 		try {
-			JAXBContext context = JAXBContext.newInstance(Employee.class);
+			JAXBContext context = JAXBContext.newInstance(Person.class);
 			Marshaller marshal = context.createMarshaller();
 			marshal.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
-			marshal.marshal(employee, System.out);
+			marshal.marshal(Person, System.out);
 
 		
 		} catch (JAXBException e) {
@@ -40,13 +40,13 @@ public class TestClient {
 	
 	
 	
-	public static Employee  xmlToObject(){
-		Employee emp = null ;
+	public static Person  xmlToObject(){
+		Person emp = null ;
 
 		try {
-			JAXBContext context = JAXBContext.newInstance(Employee.class);
+			JAXBContext context = JAXBContext.newInstance(Person.class);
 			Unmarshaller un = context.createUnmarshaller();
-			 emp = (Employee)un.unmarshal(new File("employee.xml"));
+			 emp = (Person)un.unmarshal(new File("person.xml"));
 			 System.out.println(" id :  "+emp.getId());
 			 System.out.println(" name :  "+emp.getName());
 		} catch (JAXBException e) {
